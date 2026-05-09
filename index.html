@@ -1176,7 +1176,7 @@
             return;
           }
 
-          pool.holdings.unshift(normalizeHolding({ symbol, shares: actualShares, cost, currency, market }));
+          pool.holdings.push(normalizeHolding({ symbol, shares: actualShares, cost, currency, market }));
           pool.expanded = false;
           savePools();
           renderCards();
@@ -1237,7 +1237,7 @@
         return;
       }
 
-      pools.unshift(normalizePool({
+      pools.push(normalizePool({
         id: `pool-${Date.now()}`,
         name,
         cap,
