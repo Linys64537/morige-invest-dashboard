@@ -118,34 +118,41 @@
       font-size: 0.78rem;
     }
 
-    .summary-actions {
-      margin-top: 10px;
-      display: grid;
-      gap: 8px;
+    .hero-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
     }
 
     .reset-button {
       appearance: none;
-      width: 100%;
+      flex-shrink: 0;
       border: 1px solid rgba(185, 60, 60, 0.14);
-      border-radius: 14px;
+      border-radius: 999px;
       background: rgba(185, 60, 60, 0.08);
       color: #b93c3c;
-      font-size: 0.88rem;
+      font-size: 0.78rem;
       font-weight: 700;
-      padding: 12px 14px;
+      padding: 8px 12px;
     }
 
-    .clear-storage-button {
+    .section-actions {
+      margin-top: 14px;
+    }
+
+    .section-button,
+    .board-button {
       appearance: none;
       width: 100%;
-      border: 1px solid rgba(31, 41, 55, 0.1);
+      border: none;
       border-radius: 14px;
-      background: rgba(255, 255, 255, 0.55);
-      color: var(--text);
-      font-size: 0.88rem;
+      background: linear-gradient(135deg, #b7793d, #cf9462);
+      color: #fffdf8;
+      font-size: 0.9rem;
       font-weight: 700;
       padding: 12px 14px;
+      box-shadow: 0 12px 24px rgba(183, 121, 61, 0.18);
     }
 
     .cards {
@@ -162,16 +169,6 @@
       background: var(--card);
       border: 1px solid var(--line);
       box-shadow: 0 14px 28px rgba(97, 73, 46, 0.08);
-    }
-
-    .card.is-warning {
-      border-color: rgba(219, 162, 33, 0.34);
-      box-shadow: 0 16px 30px rgba(219, 162, 33, 0.12);
-    }
-
-    .card.is-over {
-      border-color: rgba(196, 61, 61, 0.34);
-      box-shadow: 0 16px 30px rgba(196, 61, 61, 0.14);
     }
 
     .card::after {
@@ -199,54 +196,14 @@
       font-size: 1.08rem;
     }
 
-    .badge {
-      padding: 7px 11px;
-      border-radius: 999px;
-      background: rgba(183, 121, 61, 0.12);
-      color: var(--accent);
-      font-size: 0.76rem;
-      font-weight: 700;
-      white-space: nowrap;
+    .title-row {
+      min-width: 0;
     }
 
-    .cap-edit {
+    .pool-edit-form {
       position: relative;
       z-index: 1;
-      display: grid;
-      gap: 10px;
       margin-bottom: 14px;
-    }
-
-    .cap-edit.is-warning .cap-value,
-    .cap-edit.is-warning .edit-button {
-      color: #9c6a00;
-    }
-
-    .cap-edit.is-over .cap-value,
-    .cap-edit.is-over .edit-button {
-      color: #b93c3c;
-    }
-
-    .cap-edit-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
-    .cap-edit-actions {
-      display: flex;
-      gap: 8px;
-      flex-shrink: 0;
-    }
-
-    .cap-value {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.84rem;
-    }
-
-    .cap-form {
       display: grid;
       gap: 10px;
       padding: 12px 14px;
@@ -255,7 +212,7 @@
       border: 1px solid rgba(31, 41, 55, 0.06);
     }
 
-    .cap-form[hidden] {
+    .pool-edit-form[hidden] {
       display: none;
     }
 
@@ -285,26 +242,6 @@
     .metric strong {
       font-size: 0.96rem;
       text-align: right;
-    }
-
-    .metric-usage.is-warning {
-      background: rgba(219, 162, 33, 0.14);
-      border-color: rgba(219, 162, 33, 0.2);
-    }
-
-    .metric-usage.is-warning span,
-    .metric-usage.is-warning strong {
-      color: #9c6a00;
-    }
-
-    .metric-usage.is-over {
-      background: rgba(196, 61, 61, 0.12);
-      border-color: rgba(196, 61, 61, 0.16);
-    }
-
-    .metric-usage.is-over span,
-    .metric-usage.is-over strong {
-      color: #b93c3c;
     }
 
     .metric-remaining.is-safe {
@@ -412,6 +349,20 @@
       box-shadow: 0 0 0 4px rgba(183, 121, 61, 0.12);
     }
 
+    .board-form {
+      margin-top: 18px;
+      display: grid;
+      gap: 10px;
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.55);
+      border: 1px solid rgba(31, 41, 55, 0.06);
+    }
+
+    .board-form[hidden] {
+      display: none;
+    }
+
     .holdings {
       position: relative;
       z-index: 1;
@@ -505,6 +456,21 @@
       white-space: nowrap;
     }
 
+    .icon-button {
+      appearance: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border: 1px solid rgba(31, 41, 55, 0.08);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.58);
+      color: var(--muted);
+      font-size: 0.95rem;
+      flex-shrink: 0;
+    }
+
     .save-button {
       appearance: none;
       border: none;
@@ -526,6 +492,35 @@
       font-size: 0.8rem;
     }
 
+    .board-actions {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      gap: 8px;
+      flex-shrink: 0;
+      align-items: center;
+    }
+
+    .board-delete-button {
+      color: #b93c3c;
+    }
+
+    .empty-state {
+      margin-top: 18px;
+      padding: 20px 18px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.58);
+      border: 1px solid rgba(31, 41, 55, 0.06);
+      box-shadow: 0 14px 28px rgba(97, 73, 46, 0.08);
+      text-align: center;
+    }
+
+    .empty-state p {
+      margin: 0 0 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
     .form-error {
       margin: 0;
       color: #b93c3c;
@@ -539,7 +534,6 @@
       }
 
       .card-top,
-      .cap-edit-top,
       .metric,
       .holding-item-top,
       .holding-item-bottom {
@@ -557,8 +551,11 @@
   <main class="app">
     <section class="hero">
       <p class="eyebrow">INVESTMENT DASHBOARD</p>
-      <h1>投資控制台首頁</h1>
-      <p class="subtitle">手機版優先的簡潔首頁，一眼查看 ETF、金融、個股、波段四個資金池的配置狀況。</p>
+      <div class="hero-head">
+        <h1>投資控制台首頁</h1>
+        <button type="button" class="reset-button" id="reset-data-button">重設資料</button>
+      </div>
+      <p class="subtitle">一眼掌握資金配置</p>
       <div class="summary">
         <div class="summary-item">
           <p class="summary-label">美元匯率設定</p>
@@ -580,9 +577,28 @@
           <p class="summary-value" id="total-remaining">NT$ 0</p>
         </div>
       </div>
-      <div class="summary-actions">
-        <button type="button" class="reset-button" id="reset-data-button">重設資料</button>
-        <button type="button" class="clear-storage-button" id="clear-storage-button">清除本機資料</button>
+      <div class="section-actions">
+        <button type="button" class="section-button" id="show-board-form-button">新增投資板塊</button>
+      </div>
+      <form class="board-form" id="board-form" hidden>
+        <div class="field">
+          <label for="board-name-input">板塊名稱</label>
+          <input id="board-name-input" type="text" placeholder="例如 ETF 存股系統">
+        </div>
+        <div class="field">
+          <label for="board-cap-input">資金上限</label>
+          <input id="board-cap-input" type="number" min="0" inputmode="numeric" placeholder="例如 1000000">
+        </div>
+        <div class="field">
+          <label for="board-tone-input">標籤文字（選填）</label>
+          <input id="board-tone-input" type="text" placeholder="例如 長期">
+        </div>
+        <p class="form-error" id="board-form-error"></p>
+        <button type="submit" class="board-button">建立投資板塊</button>
+      </form>
+      <div class="empty-state" id="empty-state" hidden>
+        <p>尚未建立投資計畫。</p>
+        <button type="button" class="board-button" id="empty-add-board-button">新增投資板塊</button>
       </div>
     </section>
 
@@ -593,96 +609,25 @@
     const STORAGE_KEY = "morige-invest-dashboard-pools";
     const EXCHANGE_RATE_KEY = "morige-invest-dashboard-usd-twd-rate";
     const MIGRATION_VERSION_KEY = "morige-invest-dashboard-migration-version";
-    const LATEST_MIGRATION_VERSION = "2026-04-latest-positions-v1";
     const DEFAULT_USD_TWD_RATE = 32.5;
 
-    const defaultPools = [
-      {
-        name: "ETF",
-        cap: 1000000,
-        tone: "長期",
-        expanded: false,
-        holdings: []
-      },
-      {
-        name: "金融",
-        cap: 300000,
-        tone: "穩定",
-        expanded: false,
-        holdings: []
-      },
-      {
-        name: "個股",
-        cap: 100000,
-        tone: "成長",
-        expanded: false,
-        holdings: []
-      },
-      {
-        name: "波段",
-        cap: 150000,
-        tone: "靈活",
-        expanded: false,
-        holdings: []
-      }
-    ];
+    const defaultPools = [];
 
     const pools = loadPools();
 
     const cards = document.getElementById("cards");
+    const emptyState = document.getElementById("empty-state");
     const resetDataButton = document.getElementById("reset-data-button");
-    const clearStorageButton = document.getElementById("clear-storage-button");
+    const showBoardFormButton = document.getElementById("show-board-form-button");
+    const emptyAddBoardButton = document.getElementById("empty-add-board-button");
+    const boardForm = document.getElementById("board-form");
+    const boardNameInput = document.getElementById("board-name-input");
+    const boardCapInput = document.getElementById("board-cap-input");
+    const boardToneInput = document.getElementById("board-tone-input");
+    const boardFormError = document.getElementById("board-form-error");
     const usdRateInput = document.getElementById("usd-rate-input");
     const usdRateLabel = document.getElementById("usd-rate-label");
     let usdToTwdRate = loadExchangeRate();
-
-    const latestPositions = [
-      {
-        name: "ETF",
-        cap: 1000000,
-        holdings: [
-          { symbol: "0056", shares: 13000, cost: 384933, currency: "TWD", market: "TW" },
-          { symbol: "00878", shares: 13000, cost: 246341, currency: "TWD", market: "TW" },
-          { symbol: "00919", shares: 13000, cost: 246055, currency: "TWD", market: "TW" },
-          { symbol: "00929", shares: 4000, cost: 74396, currency: "TWD", market: "TW" }
-        ]
-      },
-      {
-        name: "金融",
-        cap: 300000,
-        holdings: [
-          { symbol: "2881", shares: 2698, cost: 55150, currency: "TWD", market: "TW" },
-          { symbol: "2881C", shares: 46, cost: 2496, currency: "TWD", market: "TW" },
-          { symbol: "2884", shares: 1010, cost: 25688, currency: "TWD", market: "TW" },
-          { symbol: "2867", shares: 4000, cost: 27078, currency: "TWD", market: "TW" },
-          { symbol: "2887", shares: 1712, cost: 27855, currency: "TWD", market: "TW" },
-          { symbol: "2887I", shares: 175, cost: 0, currency: "TWD", market: "TW" },
-          { symbol: "2891", shares: 4000, cost: 82491, currency: "TWD", market: "TW" }
-        ]
-      },
-      {
-        name: "個股",
-        cap: 100000,
-        holdings: [
-          { symbol: "2317", shares: 4, cost: 861, currency: "TWD", market: "TW" },
-          { symbol: "2330", shares: 1, cost: 1886, currency: "TWD", market: "TW" }
-        ]
-      },
-      {
-        name: "波段",
-        cap: 150000,
-        holdings: [
-          { symbol: "1806", shares: 4500, cost: 63353, currency: "TWD", market: "TW" },
-          { symbol: "2208", shares: 1000, cost: 21986, currency: "TWD", market: "TW" },
-          { symbol: "3380", shares: 1000, cost: 44756, currency: "TWD", market: "TW" },
-          { symbol: "7719", shares: 1000, cost: 88277, currency: "TWD", market: "TW" },
-          { symbol: "7723", shares: 1000, cost: 77995, currency: "TWD", market: "TW" },
-          { symbol: "GDX", shares: 8, cost: 773.96, currency: "USD", market: "US" },
-          { symbol: "SLV", shares: 11, cost: 859.119, currency: "USD", market: "US" },
-          { symbol: "TSLA", shares: 2, cost: 719.87, currency: "USD", market: "US" }
-        ]
-      }
-    ];
 
     function cloneDefaultPools() {
       return JSON.parse(JSON.stringify(defaultPools));
@@ -706,43 +651,37 @@
       }
     }
 
-    function loadMigrationVersion() {
-      try {
-        return localStorage.getItem(MIGRATION_VERSION_KEY) || "";
-      } catch (error) {
-        return "";
-      }
-    }
-
-    function saveMigrationVersion(version) {
-      try {
-        localStorage.setItem(MIGRATION_VERSION_KEY, version);
-      } catch (error) {
-        console.warn("無法儲存 migration 版本。", error);
-      }
-    }
-
     function inferMarket(symbol) {
       const normalized = String(symbol || "").trim().toUpperCase();
       return /^\d{4,6}[A-Z]?$/.test(normalized) ? "TW" : "US";
     }
 
-    function normalizeHolding(holding, poolName = "") {
+    function normalizeHolding(holding) {
       const symbol = String(holding?.symbol || "").trim().toUpperCase();
-      const hasLegacyShape = !holding?.market && !holding?.currency;
       const market = holding?.market || inferMarket(symbol);
       const currency = holding?.currency || (market === "TW" ? "TWD" : "USD");
-      const rawShares = Number(holding?.shares) || 0;
-      const shares = hasLegacyShape && poolName === "ETF" && market === "TW" && rawShares > 0 && rawShares < 1000
-        ? rawShares * 1000
-        : rawShares;
 
       return {
         symbol,
-        shares,
+        shares: Number(holding?.shares) || 0,
         cost: Number(holding?.cost) || 0,
         currency,
         market
+      };
+    }
+
+    function normalizePool(pool, index = 0) {
+      return {
+        id: pool?.id || `pool-${Date.now()}-${index}`,
+        name: String(pool?.name || "").trim() || `投資計畫 ${index + 1}`,
+        cap: Number(pool?.cap) || 0,
+        tone: String(pool?.tone || "").trim(),
+        expanded: false,
+        holdingsExpanded: false,
+        poolEditing: false,
+        holdings: Array.isArray(pool?.holdings)
+          ? pool.holdings.map((holding) => normalizeHolding(holding)).filter((holding) => holding.shares > 0 && holding.cost >= 0)
+          : []
       };
     }
 
@@ -758,23 +697,7 @@
           return cloneDefaultPools();
         }
 
-        return cloneDefaultPools().map((defaultPool) => {
-          const storedPool = parsed.find((pool) => pool.name === defaultPool.name);
-          const holdings = Array.isArray(storedPool?.holdings)
-            ? storedPool.holdings
-                .filter((holding) => holding && holding.symbol)
-                .map((holding) => normalizeHolding(holding, defaultPool.name))
-                .filter((holding) => holding.shares > 0 && holding.cost >= 0)
-            : defaultPool.holdings.map((holding) => normalizeHolding(holding, defaultPool.name));
-
-          return {
-            ...defaultPool,
-            expanded: false,
-            holdingsExpanded: false,
-            capEditing: false,
-            holdings
-          };
-        });
+        return parsed.map((pool, index) => normalizePool(pool, index));
       } catch (error) {
         return cloneDefaultPools();
       }
@@ -783,53 +706,26 @@
     function savePools() {
       try {
         const payload = pools.map((pool) => ({
+          id: pool.id,
           name: pool.name,
           cap: pool.cap,
           tone: pool.tone,
           holdings: pool.holdings.map((holding) => normalizeHolding(holding))
         }));
-
         localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
       } catch (error) {
         console.warn("無法儲存資料到瀏覽器。", error);
       }
     }
 
-    function buildMigratedPools() {
-      return pools.map((pool) => {
-        const latestPool = latestPositions.find((item) => item.name === pool.name);
-        if (!latestPool) {
-          return pool;
-        }
-
-        return {
-          ...pool,
-          cap: latestPool.cap,
-          expanded: false,
-          holdingsExpanded: false,
-          capEditing: false,
-          holdings: latestPool.holdings
-            .map((holding) => normalizeHolding(holding, pool.name))
-            .filter((holding) => holding.shares > 0)
-        };
-      });
-    }
-
-    function applyLatestPositionsMigration() {
-      if (loadMigrationVersion() === LATEST_MIGRATION_VERSION) {
+    function resetPools() {
+      const firstConfirmed = window.confirm("確定要重設資料嗎？");
+      if (!firstConfirmed) {
         return;
       }
 
-      const migratedPools = buildMigratedPools();
-      pools.splice(0, pools.length, ...migratedPools);
-      savePools();
-      saveMigrationVersion(LATEST_MIGRATION_VERSION);
-      renderCards();
-    }
-
-    function resetPools() {
-      const confirmed = window.confirm("確定要重設資料嗎？這會清除目前瀏覽器中的儲存內容，並恢復成預設持股資料。");
-      if (!confirmed) {
+      const secondConfirmed = window.confirm("這會完全刪除所有投資計畫與持股資料，無法復原，是否繼續？");
+      if (!secondConfirmed) {
         return;
       }
 
@@ -841,30 +737,11 @@
         console.warn("無法清除瀏覽器儲存資料。", error);
       }
 
-      const restoredPools = cloneDefaultPools();
-      pools.splice(
-        0,
-        pools.length,
-        ...restoredPools.map((pool) => ({ ...pool, capEditing: false, holdingsExpanded: false }))
-      );
+      pools.splice(0, pools.length);
       usdToTwdRate = DEFAULT_USD_TWD_RATE;
       usdRateInput.value = String(DEFAULT_USD_TWD_RATE);
-      applyLatestPositionsMigration();
-    }
-
-    function clearLocalData() {
-      const confirmed = window.confirm("確定要清除本機資料嗎？清除後會移除目前瀏覽器儲存的資料，方便重新整理後測試載入流程。");
-      if (!confirmed) {
-        return;
-      }
-
-      try {
-        localStorage.removeItem(STORAGE_KEY);
-        localStorage.removeItem(EXCHANGE_RATE_KEY);
-        localStorage.removeItem(MIGRATION_VERSION_KEY);
-      } catch (error) {
-        console.warn("無法清除瀏覽器儲存資料。", error);
-      }
+      hideBoardForm();
+      renderCards();
     }
 
     function formatMoney(value, currency = "TWD") {
@@ -904,31 +781,18 @@
     function getPoolSummary(pool) {
       const investedTwd = pool.holdings.reduce((sum, holding) => sum + convertHoldingCostToTwd(holding), 0);
       const remainingTwd = pool.cap - investedTwd;
-      const usageRatio = pool.cap > 0 ? investedTwd / pool.cap : 0;
       const currencies = [...new Set(pool.holdings.map((holding) => holding.currency))];
 
       return {
         investedTwd,
         remainingTwd,
-        usageRatio,
-        usagePercent: Math.round(usageRatio * 100),
         isMixedCurrency: currencies.length > 1
       };
     }
 
-    function getPoolPressureLevel(usageRatio) {
-      if (usageRatio >= 1) {
-        return "over";
-      }
-      if (usageRatio >= 0.8) {
-        return "warning";
-      }
-      return "safe";
-    }
-
     function createPoolRemainingMetric(pool, remainingTwd) {
       const row = createMetric("剩餘額度", remainingTwd, "TWD");
-      const ratio = remainingTwd / pool.cap;
+      const ratio = pool.cap > 0 ? remainingTwd / pool.cap : 0;
       row.classList.add("metric-remaining");
 
       if (remainingTwd < 0) {
@@ -937,20 +801,6 @@
         row.classList.add("is-warning");
       } else {
         row.classList.add("is-safe");
-      }
-
-      return row;
-    }
-
-    function createUsageMetric(usagePercent, pressureLevel) {
-      const row = document.createElement("div");
-      row.className = "metric metric-usage";
-      row.innerHTML = `<span>使用率</span><strong>${usagePercent}%</strong>`;
-
-      if (pressureLevel === "over") {
-        row.classList.add("is-over");
-      } else if (pressureLevel === "warning") {
-        row.classList.add("is-warning");
       }
 
       return row;
@@ -1000,6 +850,18 @@
       return { field, select };
     }
 
+    function showBoardForm() {
+      boardForm.hidden = false;
+      boardFormError.textContent = "";
+      boardNameInput.focus();
+    }
+
+    function hideBoardForm() {
+      boardForm.hidden = true;
+      boardForm.reset();
+      boardFormError.textContent = "";
+    }
+
     function createHoldingItem(pool, holding, index) {
       const item = document.createElement("div");
       item.className = "holding-item";
@@ -1019,14 +881,17 @@
       const top = item.querySelector(".holding-item-top");
       const actions = document.createElement("div");
       actions.className = "holding-actions";
+
       const editButton = document.createElement("button");
       editButton.type = "button";
       editButton.className = "edit-button";
       editButton.textContent = "編輯";
+
       const removeButton = document.createElement("button");
       removeButton.type = "button";
       removeButton.className = "delete-button";
       removeButton.textContent = "刪除";
+
       editButton.addEventListener("click", () => {
         const openedForm = item.querySelector(".holding-form-inline");
         if (openedForm) {
@@ -1056,11 +921,7 @@
         submitButton.textContent = "儲存修改";
 
         function syncEditFields() {
-          if (marketField.select.value === "US") {
-            currencyField.select.value = "USD";
-          } else {
-            currencyField.select.value = "TWD";
-          }
+          currencyField.select.value = marketField.select.value === "US" ? "USD" : "TWD";
         }
 
         marketField.select.addEventListener("change", syncEditFields);
@@ -1095,6 +956,7 @@
 
         item.appendChild(form);
       });
+
       removeButton.addEventListener("click", () => {
         const confirmed = window.confirm(`確定要刪除 ${holding.symbol} 這筆持股嗎？`);
         if (!confirmed) {
@@ -1115,92 +977,103 @@
     function renderCards() {
       cards.innerHTML = "";
 
+      emptyState.hidden = pools.length > 0;
+
       pools.forEach((pool) => {
         const summary = getPoolSummary(pool);
-        const pressureLevel = getPoolPressureLevel(summary.usageRatio);
         const card = document.createElement("article");
         card.className = "card";
-        if (pressureLevel === "warning") {
-          card.classList.add("is-warning");
-        } else if (pressureLevel === "over") {
-          card.classList.add("is-over");
-        }
 
         const top = document.createElement("div");
         top.className = "card-top";
-        top.innerHTML = `<h2>${pool.name}</h2><div class="badge">${pool.tone}</div>`;
+        const titleRow = document.createElement("div");
+        titleRow.className = "title-row";
 
-        const capEdit = document.createElement("div");
-        capEdit.className = "cap-edit";
-        if (pressureLevel === "warning") {
-          capEdit.classList.add("is-warning");
-        } else if (pressureLevel === "over") {
-          capEdit.classList.add("is-over");
-        }
+        const title = document.createElement("h2");
+        title.textContent = pool.tone ? `${pool.name} · ${pool.tone}` : pool.name;
+        titleRow.appendChild(title);
+        top.appendChild(titleRow);
 
-        const capEditTop = document.createElement("div");
-        capEditTop.className = "cap-edit-top";
+        const boardActions = document.createElement("div");
+        boardActions.className = "board-actions";
 
-        const capValue = document.createElement("p");
-        capValue.className = "cap-value";
-        capValue.textContent = `上限 ${formatMoney(pool.cap, "TWD")}`;
-
-        const capEditActions = document.createElement("div");
-        capEditActions.className = "cap-edit-actions";
-
-        const capEditButton = document.createElement("button");
-        capEditButton.type = "button";
-        capEditButton.className = "edit-button";
-        capEditButton.textContent = pool.capEditing ? "收合" : "編輯上限";
-        capEditButton.addEventListener("click", () => {
-          pool.capEditing = !pool.capEditing;
+        const editBoardButton = document.createElement("button");
+        editBoardButton.type = "button";
+        editBoardButton.className = "icon-button";
+        editBoardButton.setAttribute("aria-label", `編輯 ${pool.name} 板塊`);
+        editBoardButton.textContent = "✏️";
+        editBoardButton.addEventListener("click", () => {
+          pool.poolEditing = !pool.poolEditing;
           renderCards();
         });
 
-        capEditActions.appendChild(capEditButton);
-        capEditTop.appendChild(capValue);
-        capEditTop.appendChild(capEditActions);
-        capEdit.appendChild(capEditTop);
-
-        const capForm = document.createElement("form");
-        capForm.className = "cap-form";
-        capForm.hidden = !pool.capEditing;
-
-        const capField = createInputField("資金池上限", "number", "例如 1000000", pool.cap);
-        const capError = document.createElement("p");
-        capError.className = "form-error";
-        const capSaveButton = document.createElement("button");
-        capSaveButton.type = "submit";
-        capSaveButton.className = "save-button";
-        capSaveButton.textContent = "儲存上限";
-
-        capForm.appendChild(capField.field);
-        capForm.appendChild(capError);
-        capForm.appendChild(capSaveButton);
-
-        capForm.addEventListener("submit", (event) => {
-          event.preventDefault();
-
-          const nextCap = Number(capField.input.value);
-          if (!(nextCap > 0)) {
-            capError.textContent = "請輸入大於 0 的上限金額。";
+        const deleteBoardButton = document.createElement("button");
+        deleteBoardButton.type = "button";
+        deleteBoardButton.className = "icon-button board-delete-button";
+        deleteBoardButton.setAttribute("aria-label", `刪除 ${pool.name} 板塊`);
+        deleteBoardButton.textContent = "🗑️";
+        deleteBoardButton.addEventListener("click", () => {
+          const confirmed = window.confirm(`確定要刪除 ${pool.name} 整個投資板塊嗎？`);
+          if (!confirmed) {
             return;
           }
 
+          const index = pools.findIndex((item) => item.id === pool.id);
+          if (index >= 0) {
+            pools.splice(index, 1);
+            savePools();
+            renderCards();
+          }
+        });
+        boardActions.appendChild(editBoardButton);
+        boardActions.appendChild(deleteBoardButton);
+        top.appendChild(boardActions);
+
+        const poolEditForm = document.createElement("form");
+        poolEditForm.className = "pool-edit-form";
+        poolEditForm.hidden = !pool.poolEditing;
+
+        const nameField = createInputField("板塊名稱", "text", "例如 ETF 存股系統", pool.name);
+        const toneField = createInputField("標籤文字", "text", "例如 長期", pool.tone);
+        const capField = createInputField("資金上限", "number", "例如 1000000", pool.cap);
+        const poolEditError = document.createElement("p");
+        poolEditError.className = "form-error";
+        const poolEditSaveButton = document.createElement("button");
+        poolEditSaveButton.type = "submit";
+        poolEditSaveButton.className = "save-button";
+        poolEditSaveButton.textContent = "儲存板塊設定";
+
+        poolEditForm.appendChild(nameField.field);
+        poolEditForm.appendChild(toneField.field);
+        poolEditForm.appendChild(capField.field);
+        poolEditForm.appendChild(poolEditError);
+        poolEditForm.appendChild(poolEditSaveButton);
+
+        poolEditForm.addEventListener("submit", (event) => {
+          event.preventDefault();
+
+          const nextName = nameField.input.value.trim();
+          const nextTone = toneField.input.value.trim();
+          const nextCap = Number(capField.input.value);
+
+          if (!nextName || !(nextCap > 0)) {
+            poolEditError.textContent = "請輸入板塊名稱與大於 0 的資金上限。";
+            return;
+          }
+
+          pool.name = nextName;
+          pool.tone = nextTone;
           pool.cap = nextCap;
-          pool.capEditing = false;
+          pool.poolEditing = false;
           savePools();
           renderCards();
         });
-
-        capEdit.appendChild(capForm);
 
         const metrics = document.createElement("div");
         metrics.className = "metrics";
         metrics.appendChild(createMetric("上限", pool.cap));
         metrics.appendChild(createMetric("已投入", summary.investedTwd, "TWD"));
         metrics.appendChild(createPoolRemainingMetric(pool, summary.remainingTwd));
-        metrics.appendChild(createUsageMetric(summary.usagePercent, pressureLevel));
 
         const actions = document.createElement("div");
         actions.className = "card-actions";
@@ -1229,7 +1102,7 @@
         form.className = "holding-form";
         form.hidden = !pool.expanded;
 
-        const defaultMarket = pool.holdings[0]?.market || (pool.name === "波段" ? "US" : "TW");
+        const defaultMarket = pool.holdings[0]?.market || "TW";
         const defaultUnit = defaultMarket === "TW" ? "lot" : "share";
         const defaultCurrency = defaultMarket === "TW" ? "TWD" : "USD";
 
@@ -1248,10 +1121,8 @@
         ], defaultCurrency);
         const sharesField = createInputField("數量", "number", "例如 13");
         const costField = createInputField("成本", "number", "例如 50000");
-
         const error = document.createElement("p");
         error.className = "form-error";
-
         const submitButton = document.createElement("button");
         submitButton.type = "submit";
         submitButton.className = "submit-button";
@@ -1276,9 +1147,7 @@
           } else {
             unitField.select.disabled = false;
             currencyField.select.disabled = false;
-            if (currencyField.select.value !== "TWD") {
-              currencyField.select.value = "TWD";
-            }
+            currencyField.select.value = "TWD";
             sharesField.input.placeholder = unitField.select.value === "lot" ? "例如 13" : "例如 13000";
           }
         }
@@ -1307,7 +1176,7 @@
             return;
           }
 
-          pool.holdings.unshift({ symbol, shares: actualShares, cost, currency, market });
+          pool.holdings.unshift(normalizeHolding({ symbol, shares: actualShares, cost, currency, market }));
           pool.expanded = false;
           savePools();
           renderCards();
@@ -1333,7 +1202,7 @@
         }
 
         card.appendChild(top);
-        card.appendChild(capEdit);
+        card.appendChild(poolEditForm);
         card.appendChild(metrics);
         if (summary.isMixedCurrency) {
           const hint = document.createElement("p");
@@ -1356,8 +1225,39 @@
       document.getElementById("total-remaining").textContent = formatMoney(totalRemaining, "TWD");
     }
 
+    boardForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const name = boardNameInput.value.trim();
+      const cap = Number(boardCapInput.value);
+      const tone = boardToneInput.value.trim();
+
+      if (!name || !(cap > 0)) {
+        boardFormError.textContent = "請輸入板塊名稱與大於 0 的資金上限。";
+        return;
+      }
+
+      pools.unshift(normalizePool({
+        id: `pool-${Date.now()}`,
+        name,
+        cap,
+        tone,
+        holdings: []
+      }, pools.length));
+      savePools();
+      hideBoardForm();
+      renderCards();
+    });
+
     resetDataButton.addEventListener("click", resetPools);
-    clearStorageButton.addEventListener("click", clearLocalData);
+    showBoardFormButton.addEventListener("click", () => {
+      if (boardForm.hidden) {
+        showBoardForm();
+      } else {
+        hideBoardForm();
+      }
+    });
+    emptyAddBoardButton.addEventListener("click", showBoardForm);
     usdRateInput.addEventListener("change", () => {
       const nextRate = Number(usdRateInput.value);
       if (!(nextRate > 0)) {
@@ -1371,7 +1271,6 @@
     });
 
     usdRateInput.value = String(usdToTwdRate);
-    applyLatestPositionsMigration();
     renderCards();
   </script>
 </body>
