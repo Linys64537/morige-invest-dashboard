@@ -656,6 +656,14 @@
       return /^\d{4,6}[A-Z]?$/.test(normalized) ? "TW" : "US";
     }
 
+    function isWholeNumber(value) {
+      return Number.isInteger(Number(value));
+    }
+
+    function isValidDecimal(value) {
+      return Number.isFinite(Number(value));
+    }
+
     function normalizeHolding(holding) {
       const symbol = String(holding?.symbol || "").trim().toUpperCase();
       const market = holding?.market || inferMarket(symbol);
@@ -806,7 +814,7 @@
       return row;
     }
 
-    function createInputField(labelText, type, placeholder, value = "") {
+    function createInputField(labelText, type, placeholder, value = "", options = {}) {
       const field = document.createElement("div");
       field.className = "field";
 
@@ -818,9 +826,10 @@
       input.placeholder = placeholder;
       input.value = value;
       if (type === "number") {
-        input.inputMode = "decimal";
+        const numberMode = options.numberMode || "decimal";
+        input.inputMode = numberMode === "integer" ? "numeric" : "decimal";
         input.min = "0";
-        input.step = "any";
+        input.step = numberMode === "integer" ? "1" : "any";
       }
 
       field.appendChild(label);
@@ -912,7 +921,7 @@
           { value: "TWD", label: "TWD" },
           { value: "USD", label: "USD" }
         ], holding.currency);
-        const sharesField = createInputField("股數", "number", "例如 13000", holding.shares);
+        const sharesField = createInputField("股數", "number", "例如 13000", holding.shares, { numberMode: "integer" });
         const costField = createInputField("成本", "number", "例如 50000", holding.cost);
         const error = document.createElement("p");
         error.className = "form-error";
@@ -945,8 +954,8 @@
           const shares = Number(sharesField.input.value);
           const cost = Number(costField.input.value);
 
-          if (!symbol || shares <= 0 || cost < 0) {
-            error.textContent = "請完整輸入股票代號、股數與成本。";
+          if (!symbol || shares <= 0 || !isWholeNumber(shares) || !isValidDecimal(cost) || cost < 0) {
+            error.textContent = "請完整輸入股票代號、整數股數與成本。";
             return;
           }
 
@@ -1120,7 +1129,7 @@
           { value: "TWD", label: "TWD" },
           { value: "USD", label: "USD" }
         ], defaultCurrency);
-        const sharesField = createInputField("數量", "number", "例如 13");
+        const sharesField = createInputField("數量", "number", "例如 13", "", { numberMode: "integer" });
         const costField = createInputField("成本", "number", "例如 50000");
         const error = document.createElement("p");
         error.className = "form-error";
@@ -1172,8 +1181,8 @@
           const cost = Number(costField.input.value);
           const actualShares = market === "TW" && unit === "lot" ? shares * 1000 : shares;
 
-          if (!symbol || actualShares <= 0 || cost < 0) {
-            error.textContent = "請完整輸入股票代號、數量與成本。";
+          if (!symbol || shares <= 0 || !isWholeNumber(shares) || actualShares <= 0 || !isValidDecimal(cost) || cost < 0) {
+            error.textContent = "請完整輸入股票代號、整數數量與成本。";
             return;
           }
 
