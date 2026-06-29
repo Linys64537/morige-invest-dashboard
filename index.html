@@ -560,7 +560,7 @@
         <div class="summary-item">
           <p class="summary-label">美元匯率設定</p>
           <div class="summary-rate">
-            <input type="number" id="usd-rate-input" min="0" step="0.1" inputmode="decimal">
+            <input type="number" id="usd-rate-input" min="0" step="any" inputmode="decimal">
             <p class="summary-rate-hint">USD 1 = TWD <span id="usd-rate-label">32.5</span></p>
           </div>
         </div>
@@ -587,7 +587,7 @@
         </div>
         <div class="field">
           <label for="board-cap-input">資金上限</label>
-          <input id="board-cap-input" type="number" min="0" inputmode="numeric" placeholder="例如 1000000">
+          <input id="board-cap-input" type="number" min="0" step="any" inputmode="decimal" placeholder="例如 1000000">
         </div>
         <div class="field">
           <label for="board-tone-input">標籤文字（選填）</label>
@@ -818,8 +818,9 @@
       input.placeholder = placeholder;
       input.value = value;
       if (type === "number") {
-        input.inputMode = "numeric";
+        input.inputMode = "decimal";
         input.min = "0";
+        input.step = "any";
       }
 
       field.appendChild(label);
